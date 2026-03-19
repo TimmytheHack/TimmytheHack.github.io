@@ -232,6 +232,21 @@ p {
   gap: 1rem;
 }
 
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.feature-list li {
+  padding-top: 0.55rem;
+  border-top: 1px solid rgba(183, 173, 157, 0.45);
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
 .text-link {
   display: inline-flex;
   align-items: center;
@@ -258,9 +273,47 @@ p {
   gap: 2rem;
 }
 
+.subsection-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.subsection-grid-compact {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.subsection-card {
+  padding: 1.3rem 1.35rem;
+  background: rgba(255, 253, 249, 0.75);
+  border: 1px solid rgba(183, 173, 157, 0.65);
+  display: grid;
+  gap: 0.65rem;
+}
+
+.subsection-card h3 {
+  font-size: 1.35rem;
+}
+
 .entry-list {
   display: grid;
   gap: 1rem;
+}
+
+.archive-group {
+  display: grid;
+  gap: 1.1rem;
+}
+
+.archive-group + .archive-group {
+  margin-top: 0.75rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(183, 173, 157, 0.55);
+}
+
+.group-header {
+  display: grid;
+  gap: 0.5rem;
 }
 
 .entry-card {
@@ -289,6 +342,32 @@ p {
   border-radius: 999px;
   font-size: 0.82rem;
   letter-spacing: 0.02em;
+}
+
+.entry-origin,
+.entry-detail,
+code {
+  font-size: 0.94rem;
+}
+
+.entry-origin {
+  color: var(--muted);
+}
+
+.entry-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.1rem;
+  align-items: center;
+}
+
+.entry-detail {
+  color: var(--muted);
+}
+
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  color: var(--text);
 }
 
 .knowledge-map {
@@ -350,6 +429,7 @@ p {
 }
 
 .tree-card-branch {
+  max-width: 100%;
   padding-bottom: 1.15rem;
 }
 
@@ -369,8 +449,9 @@ p {
 }
 
 .tree-children-leaf {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   margin-top: 1.45rem;
+  width: 100%;
 }
 
 .site-footer {
@@ -389,6 +470,8 @@ p {
   .section-grid,
   .page-intro-grid,
   .feature-grid,
+  .subsection-grid,
+  .subsection-grid-compact,
   .tree-children-home,
   .tree-children-featured,
   .tree-children-leaf {
@@ -434,7 +517,8 @@ p {
 
   .feature-card,
   .entry-card,
-  .tree-card {
+  .tree-card,
+  .subsection-card {
     padding: 1.2rem;
   }
 
