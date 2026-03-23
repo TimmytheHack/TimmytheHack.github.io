@@ -9,17 +9,28 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Future LaTeX support:
-       Add MathJax or KaTeX here if you want mathematical notation in CS notes. -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]]
+      },
+      svg: {
+        fontCache: "global"
+      }
+    };
+  </script>
+  <!-- MathJax is enabled site-wide so future mathematical notes can render TeX immediately. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
-<body data-page="cs">
+<body data-page="cs" data-section="cs">
   <header class="site-header">
     <div class="container nav-shell">
       <a class="site-mark" href="index.html" aria-label="Homepage">T</a>
       <nav class="site-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="math.html">Math</a>
-        <a href="cs.html">CS</a>
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="math.html" data-nav="math">Math</a>
+        <a href="cs.html" data-nav="cs">CS</a>
       </nav>
     </div>
   </header>

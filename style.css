@@ -278,6 +278,101 @@ p {
   gap: 2rem;
 }
 
+.archive-layout {
+  display: grid;
+  grid-template-columns: minmax(15rem, 18rem) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.archive-sidebar {
+  display: grid;
+  gap: 1rem;
+  position: sticky;
+  top: 5.75rem;
+}
+
+.sidebar-card {
+  padding: 1.15rem 1.2rem;
+  background: rgba(255, 253, 249, 0.82);
+  border: 1px solid rgba(183, 173, 157, 0.65);
+  display: grid;
+  gap: 0.65rem;
+}
+
+.directory-link {
+  display: inline-flex;
+  width: fit-content;
+  color: var(--muted);
+  border-bottom: 1px solid transparent;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.directory-link:hover,
+.directory-link.active {
+  color: var(--text);
+  border-color: var(--accent);
+}
+
+.archive-main {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.archive-controls {
+  display: grid;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  background: rgba(255, 253, 249, 0.76);
+  border: 1px solid rgba(183, 173, 157, 0.65);
+}
+
+.search-shell input {
+  width: 100%;
+  padding: 0.78rem 0.92rem;
+  border: 1px solid rgba(183, 173, 157, 0.8);
+  background: var(--paper);
+  color: var(--text);
+  font: inherit;
+}
+
+.search-shell input:focus {
+  outline: 2px solid rgba(125, 31, 31, 0.18);
+  border-color: var(--accent);
+}
+
+.filter-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.filter-button {
+  padding: 0.45rem 0.8rem;
+  border: 1px solid rgba(183, 173, 157, 0.8);
+  background: var(--paper);
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  color: var(--text);
+  border-color: var(--accent);
+  background: rgba(125, 31, 31, 0.05);
+}
+
+.archive-status {
+  font-size: 0.94rem;
+}
+
+.archive-section {
+  display: grid;
+  gap: 1rem;
+}
+
 .subsection-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -387,6 +482,33 @@ code {
   text-decoration-color: var(--accent);
 }
 
+.post-hero {
+  padding: 5.75rem 0 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.post-shell {
+  width: min(100%, 52rem);
+}
+
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.3rem;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.breadcrumbs a:hover {
+  color: var(--text);
+}
+
+.post-header {
+  display: grid;
+  gap: 1rem;
+}
+
 .long-note {
   padding: 2rem;
   background: var(--paper);
@@ -462,6 +584,22 @@ code {
   font-size: 0.9rem;
   line-height: 1.55;
   white-space: pre-wrap;
+}
+
+.formula-block .mjx-container {
+  margin: 0.7rem 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .knowledge-map {
@@ -564,6 +702,7 @@ code {
   .section-grid,
   .page-intro-grid,
   .feature-grid,
+  .archive-layout,
   .subsection-grid,
   .subsection-grid-compact,
   .thread-grid,
@@ -575,12 +714,17 @@ code {
   }
 
   .hero,
-  .page-intro {
+  .page-intro,
+  .post-hero {
     padding: 5.25rem 0 3.25rem;
   }
 
   .tree-card {
     max-width: 100%;
+  }
+
+  .archive-sidebar {
+    position: static;
   }
 
   .tree-root > .tree-card::after,
@@ -616,6 +760,8 @@ code {
   .tree-card,
   .subsection-card,
   .long-note,
+  .sidebar-card,
+  .archive-controls,
   .thread-card,
   .formula-card {
     padding: 1.2rem;

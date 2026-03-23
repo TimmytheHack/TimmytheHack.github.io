@@ -9,6 +9,9 @@ This repository contains a static personal academic website designed for GitHub 
 ├── index.html
 ├── math.html
 ├── cs.html
+├── posts/
+│   └── math/
+│       └── invariant-regions-instead-of-zero-error.html
 ├── style.css
 ├── script.js
 └── README.md
@@ -25,14 +28,17 @@ Homepage with:
 
 ### `math.html`
 Mathematics section page with:
-- one real subsection: `Invariant`
-- a long-form note connecting analysis, fixed points, and constrained learning dynamics
-- raw TeX blocks ready for future MathJax or KaTeX support
+- an archive index for the Math section
+- subsection directory, search, and filtering controls
+- cards that link out to dedicated post pages
 
 ### `cs.html`
 Computer science section page with:
 - a minimal placeholder state
 - room for future real subsections once they exist
+
+### `posts/math/invariant-regions-instead-of-zero-error.html`
+Dedicated post page for the current invariant essay, with live MathJax rendering.
 
 ### `style.css`
 Shared visual system for the entire site:
@@ -54,7 +60,9 @@ Lightweight enhancements:
 Edit the hero section in [index.html](/Users/tz/Desktop/TimmytheHack.github.io/index.html).
 
 ### Add new Math entries
-Duplicate the `article.long-note` block or add a new section beneath it in [math.html](/Users/tz/Desktop/TimmytheHack.github.io/math.html).
+1. Add a new `article.archive-entry` card in [math.html](/Users/tz/Desktop/TimmytheHack.github.io/math.html).
+2. Create a new post page under `posts/math/`.
+3. Link the card to the new post page.
 
 ### Add new CS entries
 Replace the placeholder content in [cs.html](/Users/tz/Desktop/TimmytheHack.github.io/cs.html) once a real subsection emerges.
@@ -63,7 +71,7 @@ Replace the placeholder content in [cs.html](/Users/tz/Desktop/TimmytheHack.gith
 Edit shared colors, typography, spacing, and layout in [style.css](/Users/tz/Desktop/TimmytheHack.github.io/style.css).
 
 ### Add LaTeX later
-Each HTML page includes a comment in the `<head>` showing where MathJax or KaTeX can be inserted.
+MathJax is already enabled in the HTML pages. If you later want KaTeX instead, replace the MathJax script tags in the page `<head>` blocks.
 
 ## Current Archive Taxonomy
 
@@ -107,6 +115,8 @@ When adding future content, prefer:
 - short precise titles
 - dates on entries
 - concise excerpts
+- one archive card per idea
+- one dedicated post page per developed piece
 - restrained styling
 - semantic HTML
 - notes that can later grow into full essays

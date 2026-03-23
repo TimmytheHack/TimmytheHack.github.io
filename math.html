@@ -3,23 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Mathematics notes on invariants, fixed points, and constrained dynamics.">
+  <meta name="description" content="Mathematics archive with notes on invariants, fixed points, and constrained dynamics.">
   <title>Math | Tim</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <!-- Future LaTeX support:
-       Add MathJax or KaTeX here if you want math notation on this page. -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]]
+      },
+      svg: {
+        fontCache: "global"
+      }
+    };
+  </script>
+  <!-- MathJax is enabled site-wide so future mathematical notes can render TeX immediately. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
 </head>
-<body data-page="math">
+<body data-page="math" data-section="math">
   <header class="site-header">
     <div class="container nav-shell">
       <a class="site-mark" href="index.html" aria-label="Homepage">T</a>
       <nav class="site-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="math.html">Math</a>
-        <a href="cs.html">CS</a>
+        <a href="index.html" data-nav="home">Home</a>
+        <a href="math.html" data-nav="math">Math</a>
+        <a href="cs.html" data-nav="cs">CS</a>
       </nav>
     </div>
   </header>
@@ -29,13 +40,13 @@
       <div class="container page-intro-grid">
         <div>
           <p class="eyebrow">Mathematics</p>
-          <h1>Invariant</h1>
+          <h1>Archive of working pieces</h1>
         </div>
         <p class="page-intro-copy">
-          This page currently centers on one mathematical idea that has continued
-          to return in different forms: invariance. What began in analysis through
-          contraction mappings and fixed points has grown into a broader question
-          about stability, constrained dynamics, and the design of learning systems.
+          The Math page is now an archive rather than a single long document. Each
+          real line of thought can live as its own subsection, and each subsection
+          can hold separate notes, essays, and exploratory pieces that are easy to
+          browse, select, and extend over time.
         </p>
       </div>
     </section>
@@ -43,228 +54,90 @@
     <section class="section">
       <div class="container content-section">
         <div class="section-heading section-heading-wide">
-          <p class="section-label">Subsection</p>
+          <p class="section-label">Current Subsection</p>
           <h2>Invariant</h2>
           <p class="section-intro">
-            This is the first real subsection in the archive. It records a line of
-            thought that connects analysis, fixed-point reasoning, orbital simulation,
-            and modern questions about learning under structural constraints.
+            This subsection grows out of analysis, especially contraction mappings
+            and fixed points, and widens into a broader interest in controlled regions,
+            stability, and structure-preserving dynamics in learning systems.
           </p>
         </div>
 
-        <!-- Add future work under this subsection by duplicating the long-note article or adding new entry-card blocks below it. -->
-        <article class="long-note">
-          <div class="entry-meta">
-            <span class="tag">analysis</span>
-            <span class="tag">fixed point theorem</span>
-            <span class="tag">dynamical systems</span>
-            <span class="tag">learning theory</span>
+        <div class="archive-layout">
+          <aside class="archive-sidebar">
+            <div class="sidebar-card">
+              <p class="section-label">Directory</p>
+              <h3>Subsections</h3>
+              <a class="directory-link active" href="#invariant">Invariant</a>
+            </div>
+            <div class="sidebar-card">
+              <p class="section-label">Workflow</p>
+              <h3>How pieces can grow</h3>
+              <p>Brainstorm -> short note -> longer essay -> connected series.</p>
+            </div>
+            <div class="sidebar-card">
+              <p class="section-label">Editing</p>
+              <h3>Add future work</h3>
+              <p>
+                Add a new card in the archive below, then create a dedicated post page
+                when the piece is ready to stand on its own.
+              </p>
+            </div>
+          </aside>
+
+          <div class="archive-main">
+            <div class="archive-controls">
+              <label class="search-shell" for="archive-search">
+                <span class="visually-hidden">Search archive</span>
+                <input id="archive-search" type="search" placeholder="Search titles, tags, or themes" data-archive-search>
+              </label>
+              <div class="filter-group" aria-label="Archive filters">
+                <button class="filter-button active" type="button" data-filter="all">All</button>
+                <button class="filter-button" type="button" data-filter="essay">Essays</button>
+                <button class="filter-button" type="button" data-filter="note">Notes</button>
+                <button class="filter-button" type="button" data-filter="brainstorm">Brainstorms</button>
+              </div>
+              <p class="archive-status" data-archive-status></p>
+            </div>
+
+            <section id="invariant" class="archive-section">
+              <div class="group-header">
+                <p class="section-label">Invariant</p>
+                <h3>Analysis, fixed points, and controlled learning dynamics</h3>
+              </div>
+
+              <div class="entry-list">
+                <!-- Add future math archive cards by duplicating one article.archive-entry block below. -->
+                <article
+                  class="entry-card archive-entry"
+                  data-kind="essay"
+                  data-title="Invariant Regions Instead of Zero Error"
+                  data-keywords="invariant analysis contraction mapping theorem fixed point theorem orbital simulation constrained learning dynamics safe sets projected sgd viability theory"
+                >
+                  <div class="entry-meta">
+                    <time datetime="2026-03-23">March 23, 2026</time>
+                    <span class="tag">analysis</span>
+                    <span class="tag">invariant</span>
+                    <span class="tag">fixed point theorem</span>
+                    <span class="tag">learning dynamics</span>
+                  </div>
+                  <h3>Invariant Regions Instead of Zero Error</h3>
+                  <p>
+                    A long-form essay connecting contraction mappings, fixed points,
+                    orbital simulation, and the idea that learning may be better framed
+                    as motion inside a controlled invariant region than as pure error minimization.
+                  </p>
+                  <div class="entry-details">
+                    <span class="entry-detail"><strong>Type:</strong> Essay</span>
+                    <span class="entry-detail"><strong>Subsection:</strong> Invariant</span>
+                    <span class="entry-detail"><strong>Slug:</strong> <code>invariant-regions-instead-of-zero-error</code></span>
+                  </div>
+                  <a class="text-link" href="posts/math/invariant-regions-instead-of-zero-error.html">Read the full piece</a>
+                </article>
+              </div>
+            </section>
           </div>
-          <h2>Invariant Regions Instead of Zero Error</h2>
-          <p class="note-deck">
-            The guiding question is whether learning should always be understood as
-            error minimization, or whether a better formulation in some settings is
-            to require that the system evolve inside a controlled region whose
-            structure itself enforces stability and safety.
-          </p>
-
-          <section class="essay-section">
-            <h3>How the idea began</h3>
-            <p>
-              The first encounter with invariance came through analysis, especially
-              contraction mapping arguments and fixed-point theorems. Those results
-              made stability feel local, rigorous, and unexpectedly powerful: not
-              everything had to be solved directly if the map itself forced motion
-              toward a controlled outcome.
-            </p>
-            <p>
-              The idea became much more vivid after watching
-              <a class="inline-link" href="https://www.youtube.com/watch?v=nCg3aXn5F3M">The Code That Revolutionized Orbital Simulation</a>.
-              What stood out was not only the physics, but the algorithmic use of
-              invariant structure to keep convergence in a controllable region.
-              That immediately suggested a broader question: perhaps learning systems
-              should be designed not merely to reduce error, but to remain inside
-              regions whose behavior is bounded, interpretable, and hard to derail.
-            </p>
-          </section>
-
-          <section class="essay-section">
-            <h3>Central question</h3>
-            <div class="pull-quote">
-              Can learning be framed not as minimizing error to zero, but as evolving
-              within a constrained invariant region where error, risk, or unsafe
-              behavior remain bounded?
-            </div>
-            <p>
-              This is the shift that makes the whole note cohere. It replaces the
-              usual deep-learning instinct of pure minimization with a more structural
-              viewpoint: what if the main achievement is not exactness, but controlled
-              dynamics?
-            </p>
-          </section>
-
-          <section class="essay-section">
-            <h3>Four threads that emerged</h3>
-            <div class="thread-grid">
-              <article class="thread-card">
-                <h4>1. Beyond empirical risk minimization</h4>
-                <p>
-                  In practice, especially under SGD, models often move toward and then
-                  fluctuate within a low-loss region rather than converging cleanly to
-                  a single ideal point. That suggests learning may be better modeled as
-                  a stochastic dynamical process with bounded stable behavior.
-                </p>
-              </article>
-              <article class="thread-card">
-                <h4>2. Safety as structural restriction</h4>
-                <p>
-                  The natural safety question is whether undesirable behavior can be
-                  made unreachable rather than merely discouraged. Full morality is too
-                  global and context-dependent to become an absolute invariant, but
-                  narrower policy or safety constraints may genuinely be structural.
-                </p>
-              </article>
-              <article class="thread-card">
-                <h4>3. Domain-specific invariants</h4>
-                <p>
-                  The idea becomes more plausible in constrained domains such as
-                  manipulation, fabricated claims, targeted persuasion, or incitement.
-                  In those settings, the goal is not perfect ethical theory, but
-                  preventing entry into clearly forbidden regions.
-                </p>
-              </article>
-              <article class="thread-card">
-                <h4>4. Geometry and constrained dynamics</h4>
-                <p>
-                  The geometric intuition is strong, but classical symplectic language
-                  is probably not the right first formalism. Better starting points are
-                  constrained dynamical systems, forward-invariant sets, viability
-                  theory, barrier methods, and dissipative flows.
-                </p>
-              </article>
-            </div>
-          </section>
-
-          <section class="essay-section">
-            <h3>Why this feels mathematically real</h3>
-            <p>
-              The most convincing part of the idea is that it does not have to stay at
-              the level of philosophy. It already has a toy setting: linear regression
-              with stochastic updates and explicit constraints. Even there, one can see
-              that SGD is not simply a clean optimizer heading toward one perfect
-              solution, but a noisy dynamical process whose reachable region can be
-              reshaped by constraints.
-            </p>
-            <p>
-              From that viewpoint, invariants do not magically accelerate learning.
-              They alter the effective dynamics by removing bad directions, shrinking
-              the reachable set, and steering training away from unstable or unsafe
-              regions. That is why projected SGD, penalties, and barrier-style methods
-              feel like serious starting points rather than decorative modifications.
-            </p>
-          </section>
-
-          <section class="essay-section">
-            <h3>Working formulas worth keeping</h3>
-            <p>
-              The expressions below are kept in raw TeX so the page can be upgraded
-              cleanly later with MathJax or KaTeX.
-            </p>
-            <div class="formula-grid">
-              <article class="formula-card">
-                <h4>Empirical risk minimization</h4>
-                <pre class="formula-block">\[
-\min_{\theta}\; \mathbb{E}_{(x,y)\sim \mathcal D}\big[L(f_\theta(x),y)\big]
-\]</pre>
-              </article>
-              <article class="formula-card">
-                <h4>Zero-error vs safe-region thinking</h4>
-                <pre class="formula-block">\[
-\lim_{t\to\infty} e(t)=0
-\]
-
-\[
-\forall t,\quad e(t)\in E_{\text{safe}}
-\]</pre>
-              </article>
-              <article class="formula-card">
-                <h4>Stability conditions</h4>
-                <pre class="formula-block">\[
-\|f(x)-f(x')\|\le K\|x-x'\|
-\]
-
-\[
-V(x_{t+1}) \le V(x_t)
-\]</pre>
-              </article>
-              <article class="formula-card">
-                <h4>SGD as dynamics</h4>
-                <pre class="formula-block">\[
-\theta_{t+1}=\theta_t-\eta \,\nabla \ell(\theta_t;\xi_t)
-\]
-
-\[
-d\theta_t = -\nabla F(\theta_t)\,dt + \Sigma(\theta_t)\, dW_t
-\]</pre>
-              </article>
-              <article class="formula-card">
-                <h4>Projected SGD</h4>
-                <pre class="formula-block">\[
-\tilde\theta_{t+1}=\theta_t-\eta \,\nabla \ell(\theta_t;\xi_t)
-\]
-
-\[
-\theta_{t+1}=\Pi_C(\tilde\theta_{t+1})
-\]</pre>
-              </article>
-              <article class="formula-card">
-                <h4>Penalty and Lagrangian methods</h4>
-                <pre class="formula-block">\[
-L(\theta)+\lambda \,\max(0,g(\theta))
-\]
-
-\[
-\mathcal L(\theta,\alpha)=L(\theta)+\alpha\, g(\theta)
-\]</pre>
-              </article>
-              <article class="formula-card">
-                <h4>Generalization and control</h4>
-                <pre class="formula-block">\[
-\Pr\!\big(R(f)\le \hat R(f)+\varepsilon\big)\ge 1-\delta
-\]</pre>
-              </article>
-              <article class="formula-card">
-                <h4>Linear regression toy model</h4>
-                <pre class="formula-block">\[
-\hat y = w^\top x
-\]
-
-\[
-\ell(w;(x,y)) = \tfrac12 (w^\top x-y)^2
-\]
-
-\[
-w_{t+1}=w_t-\eta (w_t^\top x_t-y_t)x_t
-\]</pre>
-              </article>
-            </div>
-          </section>
-
-          <section class="essay-section">
-            <h3>What this idea is really aiming at</h3>
-            <p>
-              The underlying research instinct is not simply “how do I make models more
-              accurate?” It is closer to: how do I redesign learning so that structure,
-              safety, and stability are built into the dynamics from the beginning?
-            </p>
-            <p>
-              The next serious step is formalization. Start with one simple setting,
-              define one invariant precisely, show how it modifies SGD, and study the
-              effect on stability, reachable regions, or robustness. That is the point
-              where an intuition becomes the beginning of a real mathematical project.
-            </p>
-          </section>
-        </article>
+        </div>
       </div>
     </section>
   </main>

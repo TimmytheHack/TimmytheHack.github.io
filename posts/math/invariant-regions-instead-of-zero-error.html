@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A mathematical essay on invariant regions, fixed points, and constrained learning dynamics.">
+  <title>Invariant Regions Instead of Zero Error | Tim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]]
+      },
+      svg: {
+        fontCache: "global"
+      }
+    };
+  </script>
+  <!-- MathJax is enabled site-wide so future mathematical notes can render TeX immediately. -->
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body data-page="math-post" data-section="math">
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="site-mark" href="../../index.html" aria-label="Homepage">T</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../index.html" data-nav="home">Home</a>
+        <a href="../../math.html" data-nav="math">Math</a>
+        <a href="../../cs.html" data-nav="cs">CS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="post-hero">
+      <div class="container post-shell">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span>/</span>
+          <a href="../../math.html">Math</a>
+          <span>/</span>
+          <span>Invariant</span>
+        </nav>
+        <div class="post-header">
+          <div class="entry-meta">
+            <time datetime="2026-03-23">March 23, 2026</time>
+            <span class="tag">analysis</span>
+            <span class="tag">invariant</span>
+            <span class="tag">learning dynamics</span>
+          </div>
+          <h1>Invariant Regions Instead of Zero Error</h1>
+          <p class="note-deck">
+            The guiding question is whether learning should always be understood as
+            error minimization, or whether a better formulation in some settings is
+            to require that the system evolve inside a controlled region whose
+            structure itself enforces stability and safety.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container post-shell">
+        <article class="long-note">
+          <section class="essay-section">
+            <h2>How the idea began</h2>
+            <p>
+              My first encounter with invariance came through analysis, especially
+              contraction mapping arguments and fixed-point theorems. Those results
+              made stability feel local, rigorous, and unexpectedly powerful: not
+              everything had to be solved directly if the map itself forced motion
+              toward a controlled outcome.
+            </p>
+            <p>
+              The idea became much more vivid after watching
+              <a class="inline-link" href="https://www.youtube.com/watch?v=nCg3aXn5F3M">The Code That Revolutionized Orbital Simulation</a>.
+              What stayed with me was not only the physics, but the algorithmic use of
+              invariant structure to keep convergence in a controllable region. That
+              immediately suggested a broader question: perhaps learning systems
+              should be designed not merely to reduce error, but to remain inside
+              regions whose behavior is bounded, interpretable, and hard to derail.
+            </p>
+          </section>
+
+          <section class="essay-section">
+            <h2>From minimization to controlled regions</h2>
+            <div class="pull-quote">
+              Can learning be framed not as minimizing error to zero, but as evolving
+              within a constrained invariant region where error, risk, or unsafe
+              behavior remain bounded?
+            </div>
+            <p>
+              The core idea is a shift away from the familiar deep-learning mindset of
+              “make the error as small as possible” toward a different paradigm.
+              Instead of forcing error to vanish, one designs learning systems so their
+              behavior stays inside a controlled, stable, interpretable region.
+              In that language, pure minimization is replaced by constraints,
+              invariants, safe sets, and structured dynamics.
+            </p>
+          </section>
+
+          <section class="essay-section">
+            <h2>Four threads</h2>
+            <div class="thread-grid">
+              <article class="thread-card">
+                <h3>Empirical risk minimization is not the whole picture</h3>
+                <p>
+                  In practice, especially with SGD, models often do not converge to a
+                  perfect point solution. They move toward and then fluctuate inside a
+                  low-loss region. That suggests a different objective: not zero error,
+                  but bounded, stable, controlled error.
+                </p>
+              </article>
+              <article class="thread-card">
+                <h3>Safety can sometimes be structural</h3>
+                <p>
+                  The strongest version of the safety question is whether harmful
+                  behavior can be made unreachable rather than merely discouraged.
+                  Full morality likely cannot be captured as an absolute invariant,
+                  but narrower policy or safety restrictions may genuinely be structural.
+                </p>
+              </article>
+              <article class="thread-card">
+                <h3>Structured domains make the idea more tractable</h3>
+                <p>
+                  When the task is not to decide the uniquely correct value judgment,
+                  but to forbid manipulation, incitement, fabricated facts, or targeted
+                  persuasion, the constraints begin to look much more like true invariants.
+                </p>
+              </article>
+              <article class="thread-card">
+                <h3>Geometry matters, but probably not in the first way I imagined</h3>
+                <p>
+                  The geometric intuition is strong, but classical symplectic geometry
+                  is probably not the right first language because training and generation
+                  are dissipative, noisy, and irreversible. Better starting points are
+                  constrained dynamical systems, viability theory, forward-invariant sets,
+                  barrier methods, and controlled flows.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section class="essay-section">
+            <h2>Where the idea becomes concrete</h2>
+            <p>
+              The useful turn in the conversation came when the discussion moved from
+              philosophy to mechanisms. Invariants can change SGD in at least three
+              practical ways. One is projected SGD, where each update is returned to a
+              feasible set. Another is penalty or Lagrangian enforcement, where
+              violations are opposed during optimization. A third is to alter the
+              update field itself so trajectories are repelled from forbidden regions.
+            </p>
+            <p>
+              What makes this promising is that the idea already has a minimal toy
+              model. In linear regression, SGD is already a stochastic dynamical system,
+              not merely a clean optimizer. Even there, norm bounds or subspace
+              constraints change the reachable region, improve conditioning, and make
+              training more stable.
+            </p>
+          </section>
+
+          <section class="essay-section">
+            <h2>Working formulas</h2>
+            <p>
+              These are the expressions that seem most worth keeping from the original
+              line of thought.
+            </p>
+            <div class="formula-grid">
+              <article class="formula-card">
+                <h3>ERM and zero-error thinking</h3>
+                <div class="formula-block">
+                  \[
+                  \min_{\theta}\; \mathbb{E}_{(x,y)\sim \mathcal D}\big[L(f_\theta(x),y)\big]
+                  \]
+
+                  \[
+                  \lim_{t\to\infty} e(t)=0
+                  \]
+                </div>
+              </article>
+
+              <article class="formula-card">
+                <h3>Invariant-region thinking</h3>
+                <div class="formula-block">
+                  \[
+                  \forall t,\quad e(t)\in E_{\text{safe}}
+                  \]
+
+                  \[
+                  \|f(x)-f(x')\|\le K\|x-x'\|
+                  \]
+
+                  \[
+                  V(x_{t+1}) \le V(x_t)
+                  \]
+                </div>
+              </article>
+
+              <article class="formula-card">
+                <h3>Optimization with constraints</h3>
+                <div class="formula-block">
+                  \[
+                  \theta_{t+1}=\theta_t-\eta \,\nabla \ell(\theta_t;\xi_t)
+                  \]
+
+                  \[
+                  \tilde\theta_{t+1}=\theta_t-\eta \,\nabla \ell(\theta_t;\xi_t)
+                  \]
+
+                  \[
+                  \theta_{t+1}=\Pi_C(\tilde\theta_{t+1})
+                  \]
+                </div>
+              </article>
+
+              <article class="formula-card">
+                <h3>Penalty and Lagrangian views</h3>
+                <div class="formula-block">
+                  \[
+                  L(\theta)+\lambda \,\max(0,g(\theta))
+                  \]
+
+                  \[
+                  \mathcal L(\theta,\alpha)=L(\theta)+\alpha\, g(\theta)
+                  \]
+                </div>
+              </article>
+
+              <article class="formula-card">
+                <h3>SGD as stochastic dynamics</h3>
+                <div class="formula-block">
+                  \[
+                  d\theta_t = -\nabla F(\theta_t)\,dt + \Sigma(\theta_t)\, dW_t
+                  \]
+
+                  \[
+                  \Pr\!\big(R(f)\le \hat R(f)+\varepsilon\big)\ge 1-\delta
+                  \]
+                </div>
+              </article>
+
+              <article class="formula-card">
+                <h3>Linear regression toy model</h3>
+                <div class="formula-block">
+                  \[
+                  \hat y = w^\top x
+                  \]
+
+                  \[
+                  \ell(w;(x,y)) = \tfrac12 (w^\top x-y)^2
+                  \]
+
+                  \[
+                  w_{t+1}=w_t-\eta (w_t^\top x_t-y_t)x_t
+                  \]
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="essay-section">
+            <h2>What the project is really asking</h2>
+            <p>
+              The underlying research instinct is not simply how to make models more
+              accurate. It is how to redesign learning so that structure, safety, and
+              stability are built into the dynamics from the beginning.
+            </p>
+            <p>
+              The right next step is not more philosophy, but formalization. Start with
+              one simple setting, define one invariant clearly, show how it modifies
+              SGD, and study what changes in stability, reachable regions, or
+              robustness. That is the bridge from an interesting intuition to a real
+              mathematical project.
+            </p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>Mathematics post.</p>
+      <p>Subsection: Invariant.</p>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>
