@@ -11,6 +11,7 @@ This repository contains a static personal academic website designed for GitHub 
 ├── cs.html
 ├── posts/
 │   └── math/
+│       ├── invariant-formula-sheet.html
 │       └── invariant-regions-instead-of-zero-error.html
 ├── style.css
 ├── script.js
@@ -39,6 +40,9 @@ Computer science section page with:
 
 ### `posts/math/invariant-regions-instead-of-zero-error.html`
 Dedicated post page for the current invariant essay, with live MathJax rendering.
+
+### `posts/math/invariant-formula-sheet.html`
+Dedicated reference page collecting the main formulas and theorems for the invariant subsection.
 
 ### `style.css`
 Shared visual system for the entire site:

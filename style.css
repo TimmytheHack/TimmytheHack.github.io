@@ -509,6 +509,13 @@ code {
   gap: 1rem;
 }
 
+.companion-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.15rem;
+  align-items: center;
+}
+
 .long-note {
   padding: 2rem;
   background: var(--paper);
@@ -549,14 +556,16 @@ code {
 }
 
 .thread-grid,
-.formula-grid {
+.formula-grid,
+.reference-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
 .thread-card,
-.formula-card {
+.formula-card,
+.reference-card {
   padding: 1.2rem 1.25rem;
   background: rgba(255, 253, 249, 0.82);
   border: 1px solid rgba(183, 173, 157, 0.65);
@@ -565,12 +574,17 @@ code {
 }
 
 .thread-card h4,
-.formula-card h4 {
+.formula-card h4,
+.reference-card h3 {
   margin: 0;
   font-family: "Crimson Text", Georgia, serif;
   font-size: 1.25rem;
   line-height: 1.2;
   color: var(--text);
+}
+
+.reference-caption {
+  font-size: 0.98rem;
 }
 
 .formula-block {
@@ -707,6 +721,7 @@ code {
   .subsection-grid-compact,
   .thread-grid,
   .formula-grid,
+  .reference-grid,
   .tree-children-home,
   .tree-children-featured,
   .tree-children-leaf {
@@ -763,7 +778,8 @@ code {
   .sidebar-card,
   .archive-controls,
   .thread-card,
-  .formula-card {
+  .formula-card,
+  .reference-card {
     padding: 1.2rem;
   }
 

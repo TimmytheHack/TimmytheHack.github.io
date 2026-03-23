@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A formula and theorem reference page for the invariant subsection.">
+  <title>Invariant Formula Sheet | Tim</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [["\\(", "\\)"]],
+        displayMath: [["\\[", "\\]"]]
+      },
+      svg: {
+        fontCache: "global"
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body data-page="math-post" data-section="math">
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="site-mark" href="../../index.html" aria-label="Homepage">T</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../../index.html" data-nav="home">Home</a>
+        <a href="../../math.html" data-nav="math">Math</a>
+        <a href="../../cs.html" data-nav="cs">CS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="post-hero">
+      <div class="container post-shell">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="../../index.html">Home</a>
+          <span>/</span>
+          <a href="../../math.html">Math</a>
+          <span>/</span>
+          <span>Invariant</span>
+        </nav>
+        <div class="post-header">
+          <div class="entry-meta">
+            <time datetime="2026-03-23">March 23, 2026</time>
+            <span class="tag">reference</span>
+            <span class="tag">theorems</span>
+            <span class="tag">dynamics</span>
+          </div>
+          <h1>Invariant Formula Sheet</h1>
+          <p class="note-deck">
+            A reference page collecting formulas and theorems that seem central to the
+            invariant subsection: fixed points, contraction, Lyapunov ideas, forward-invariant
+            sets, constrained optimization, and the geometric intuition behind symplectic dynamics.
+          </p>
+          <div class="companion-links">
+            <a class="text-link" href="invariant-regions-instead-of-zero-error.html">Read the main essay</a>
+            <a class="text-link" href="../../math.html">Back to Math archive</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container post-shell">
+        <article class="long-note">
+          <section class="essay-section">
+            <h2>Why this page exists</h2>
+            <p>
+              The main essay is conceptual. This page is meant to be the mathematical
+              companion: a compact reference for statements, formulas, and structural
+              ideas that keep returning whenever one thinks about invariance, stability,
+              and constrained evolution.
+            </p>
+          </section>
+
+          <section class="essay-section">
+            <h2>Fixed points and contraction</h2>
+            <div class="reference-grid">
+              <article class="reference-card">
+                <h3>Contraction mapping</h3>
+                <p class="reference-caption">
+                  A map contracts distances and therefore forces iterates together.
+                </p>
+                <div class="formula-block">
+                  \[
+                  d(Tx,Ty)\le c\, d(x,y), \qquad 0<c<1
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Banach fixed-point theorem</h3>
+                <p class="reference-caption">
+                  On a complete metric space, a contraction has a unique fixed point.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \exists!\,x^\ast \in X \quad \text{such that} \quad T(x^\ast)=x^\ast
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Iterative convergence</h3>
+                <p class="reference-caption">
+                  Repeated application of the map converges to the fixed point.
+                </p>
+                <div class="formula-block">
+                  \[
+                  x_{n+1}=T(x_n), \qquad x_n \to x^\ast
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Error decay under contraction</h3>
+                <p class="reference-caption">
+                  The distance to the fixed point shrinks geometrically.
+                </p>
+                <div class="formula-block">
+                  \[
+                  d(x_n,x^\ast)\le c^n d(x_0,x^\ast)
+                  \]
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="essay-section">
+            <h2>Invariant sets and stability</h2>
+            <div class="reference-grid">
+              <article class="reference-card">
+                <h3>Forward-invariant set</h3>
+                <p class="reference-caption">
+                  Once a trajectory enters the set, it remains there.
+                </p>
+                <div class="formula-block">
+                  \[
+                  x_0\in S \implies x_t\in S \quad \forall t\ge 0
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Invariant manifold intuition</h3>
+                <p class="reference-caption">
+                  Dynamics preserve a lower-dimensional geometric structure.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \Phi_t(M)\subseteq M
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Lyapunov decrease</h3>
+                <p class="reference-caption">
+                  A Lyapunov function tracks one-sided motion toward stability.
+                </p>
+                <div class="formula-block">
+                  \[
+                  V(x_{t+1}) \le V(x_t)
+                  \]
+
+                  \[
+                  \dot V(x) \le 0
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Lipschitz control</h3>
+                <p class="reference-caption">
+                  Local perturbations remain bounded under the map.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \|f(x)-f(x')\|\le K\|x-x'\|
+                  \]
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="essay-section">
+            <h2>Optimization and constrained learning</h2>
+            <div class="reference-grid">
+              <article class="reference-card">
+                <h3>Empirical risk minimization</h3>
+                <p class="reference-caption">
+                  The baseline objective that the invariant viewpoint is pushing against.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \min_{\theta}\; \mathbb{E}_{(x,y)\sim \mathcal D}\big[L(f_\theta(x),y)\big]
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Safe-region reinterpretation</h3>
+                <p class="reference-caption">
+                  Replace asymptotic perfection with bounded admissible behavior.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \forall t,\quad e(t)\in E_{\text{safe}}
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>SGD update</h3>
+                <p class="reference-caption">
+                  Standard stochastic descent as a discrete-time dynamical system.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \theta_{t+1}=\theta_t-\eta \,\nabla \ell(\theta_t;\xi_t)
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Projected SGD</h3>
+                <p class="reference-caption">
+                  A direct way of preserving feasibility after each update.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \tilde\theta_{t+1}=\theta_t-\eta \,\nabla \ell(\theta_t;\xi_t)
+                  \]
+
+                  \[
+                  \theta_{t+1}=\Pi_C(\tilde\theta_{t+1})
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Penalty and Lagrangian methods</h3>
+                <p class="reference-caption">
+                  Violations are discouraged or dualized during optimization.
+                </p>
+                <div class="formula-block">
+                  \[
+                  L(\theta)+\lambda \,\max(0,g(\theta))
+                  \]
+
+                  \[
+                  \mathcal L(\theta,\alpha)=L(\theta)+\alpha\, g(\theta)
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Barrier-style viewpoint</h3>
+                <p class="reference-caption">
+                  A forbidden region can be encoded through a function that blows up near the boundary.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \min_{\theta}\; L(\theta)+\mu\, B(\theta), \qquad B(\theta)\to \infty \text{ near } \partial C
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Stochastic differential view of SGD</h3>
+                <p class="reference-caption">
+                  A continuous-time approximation that emphasizes noisy flow rather than exact convergence.
+                </p>
+                <div class="formula-block">
+                  \[
+                  d\theta_t = -\nabla F(\theta_t)\,dt + \Sigma(\theta_t)\, dW_t
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Linear regression toy model</h3>
+                <p class="reference-caption">
+                  A minimal example in which constrained dynamics can already be studied.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \hat y = w^\top x
+                  \]
+
+                  \[
+                  \ell(w;(x,y)) = \tfrac12 (w^\top x-y)^2
+                  \]
+
+                  \[
+                  w_{t+1}=w_t-\eta (w_t^\top x_t-y_t)x_t
+                  \]
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="essay-section">
+            <h2>Hamiltonian and symplectic structure</h2>
+            <p>
+              Classical symplectic geometry is probably not the first formal language
+              for your learning question, but it still matters here because it is the
+              canonical example of dynamics governed by exact preserved structure.
+            </p>
+            <div class="reference-grid">
+              <article class="reference-card">
+                <h3>Hamilton's equations</h3>
+                <p class="reference-caption">
+                  Evolution is determined by a Hamiltonian \(H(q,p)\).
+                </p>
+                <div class="formula-block">
+                  \[
+                  \dot q_i = \frac{\partial H}{\partial p_i}, \qquad
+                  \dot p_i = -\frac{\partial H}{\partial q_i}
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Symplectic form</h3>
+                <p class="reference-caption">
+                  The canonical geometric object preserved by Hamiltonian flow.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \omega = \sum_{i=1}^n dq_i \wedge dp_i
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Symplectic invariance</h3>
+                <p class="reference-caption">
+                  The flow preserves the symplectic form.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \Phi_t^\ast \omega = \omega
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Energy conservation</h3>
+                <p class="reference-caption">
+                  For autonomous Hamiltonian systems, the Hamiltonian is constant along trajectories.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \frac{d}{dt}H(q(t),p(t)) = 0
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Poisson bracket</h3>
+                <p class="reference-caption">
+                  A quantity is conserved if its Poisson bracket with the Hamiltonian vanishes.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \{F,H\}=0 \implies \frac{d}{dt}F=0
+                  \]
+                </div>
+              </article>
+
+              <article class="reference-card">
+                <h3>Symplectic integrator intuition</h3>
+                <p class="reference-caption">
+                  Numerical methods can preserve geometric structure even when they do not preserve exact trajectories.
+                </p>
+                <div class="formula-block">
+                  \[
+                  \Psi_h^\ast \omega = \omega
+                  \]
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="essay-section">
+            <h2>What seems most relevant for future work</h2>
+            <div class="reference-grid">
+              <article class="reference-card">
+                <h3>Most directly usable</h3>
+                <p class="reference-caption">
+                  Contraction mappings, fixed points, forward-invariant sets, Lyapunov
+                  functions, projected SGD, penalties, and barrier methods.
+                </p>
+              </article>
+
+              <article class="reference-card">
+                <h3>Conceptually motivating</h3>
+                <p class="reference-caption">
+                  Hamiltonian flow, symplectic preservation, and geometric integrators.
+                  These sharpen the idea of structure-preserving evolution even if they
+                  are not the first tools to deploy in learning theory.
+                </p>
+              </article>
+            </div>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-shell">
+      <p>Mathematics reference page.</p>
+      <p>Subsection: Invariant.</p>
+    </div>
+  </footer>
+
+  <script src="../../script.js"></script>
+</body>
+</html>
