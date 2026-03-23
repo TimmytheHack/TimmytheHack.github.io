@@ -25,15 +25,14 @@ Homepage with:
 
 ### `math.html`
 Mathematics section page with:
-- subsection overview
-- curated brainstorm archive
-- structured entry cards for future notes and essays
+- one real subsection: `Invariant`
+- a long-form note connecting analysis, fixed points, and constrained learning dynamics
+- raw TeX blocks ready for future MathJax or KaTeX support
 
 ### `cs.html`
 Computer science section page with:
-- subsection overview
-- curated brainstorm archive
-- structured entry cards for future notes and essays
+- a minimal placeholder state
+- room for future real subsections once they exist
 
 ### `style.css`
 Shared visual system for the entire site:
@@ -55,10 +54,10 @@ Lightweight enhancements:
 Edit the hero section in [index.html](/Users/tz/Desktop/TimmytheHack.github.io/index.html).
 
 ### Add new Math entries
-Duplicate an `article.entry-card` block inside the relevant `archive-group` in [math.html](/Users/tz/Desktop/TimmytheHack.github.io/math.html).
+Duplicate the `article.long-note` block or add a new section beneath it in [math.html](/Users/tz/Desktop/TimmytheHack.github.io/math.html).
 
 ### Add new CS entries
-Duplicate an `article.entry-card` block inside the relevant `archive-group` in [cs.html](/Users/tz/Desktop/TimmytheHack.github.io/cs.html).
+Replace the placeholder content in [cs.html](/Users/tz/Desktop/TimmytheHack.github.io/cs.html) once a real subsection emerges.
 
 ### Adjust styling
 Edit shared colors, typography, spacing, and layout in [style.css](/Users/tz/Desktop/TimmytheHack.github.io/style.css).
@@ -70,16 +69,10 @@ Each HTML page includes a comment in the `<head>` showing where MathJax or KaTeX
 
 ```text
 Math
-├── Mathematical Structures and Linearity
-├── Dynamical Systems and Prediction
-├── Approximation and Smoothing
-├── Probability and Functional Behavior
-└── High-Dimensional Geometry
+└── Invariant
 
 CS
-├── Machine Learning Methods
-├── Optimization and Training Dynamics
-└── AI Systems and Model Behavior
+└── No subsection fixed yet
 ```
 
 ## Suggested Future Blog Shape
@@ -94,17 +87,10 @@ Home
 ├── About
 ├── Featured Areas
 │   ├── Math
-│   │   ├── Mathematical Structures and Linearity
-│   │   ├── Dynamical Systems and Prediction
-│   │   ├── Approximation and Smoothing
-│   │   ├── Probability and Functional Behavior
-│   │   ├── High-Dimensional Geometry
+│   │   ├── Invariant
 │   │   └── Essays / Reading Notes
 │   └── CS
-│       ├── Machine Learning Methods
-│       ├── Optimization and Training Dynamics
-│       ├── AI Systems and Model Behavior
-│       └── Projects / Reading Notes
+│       └── First real subsection
 └── Knowledge Map
 ```
 

@@ -247,6 +247,11 @@ p {
   font-size: 0.98rem;
 }
 
+.feature-note {
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
 .text-link {
   display: inline-flex;
   align-items: center;
@@ -370,6 +375,95 @@ code {
   color: var(--text);
 }
 
+.inline-link {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: rgba(125, 31, 31, 0.35);
+  text-underline-offset: 0.18em;
+}
+
+.inline-link:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.long-note {
+  padding: 2rem;
+  background: var(--paper);
+  border: 1px solid rgba(183, 173, 157, 0.7);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.status-note {
+  max-width: 44rem;
+}
+
+.note-deck {
+  max-width: 48rem;
+  color: var(--text);
+  font-size: 1.14rem;
+}
+
+.essay-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.essay-section + .essay-section {
+  padding-top: 1.8rem;
+  border-top: 1px solid rgba(183, 173, 157, 0.45);
+}
+
+.pull-quote {
+  padding: 1.15rem 1.25rem;
+  border-left: 3px solid var(--accent);
+  background: rgba(125, 31, 31, 0.05);
+  color: var(--text);
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 1.45rem;
+  line-height: 1.35;
+}
+
+.thread-grid,
+.formula-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.thread-card,
+.formula-card {
+  padding: 1.2rem 1.25rem;
+  background: rgba(255, 253, 249, 0.82);
+  border: 1px solid rgba(183, 173, 157, 0.65);
+  display: grid;
+  gap: 0.8rem;
+}
+
+.thread-card h4,
+.formula-card h4 {
+  margin: 0;
+  font-family: "Crimson Text", Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.formula-block {
+  margin: 0;
+  padding: 0.95rem 1rem;
+  background: rgba(242, 239, 232, 0.9);
+  border: 1px solid rgba(183, 173, 157, 0.55);
+  overflow-x: auto;
+  color: var(--text);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
 .knowledge-map {
   padding-top: 1rem;
 }
@@ -472,6 +566,8 @@ code {
   .feature-grid,
   .subsection-grid,
   .subsection-grid-compact,
+  .thread-grid,
+  .formula-grid,
   .tree-children-home,
   .tree-children-featured,
   .tree-children-leaf {
@@ -518,8 +614,15 @@ code {
   .feature-card,
   .entry-card,
   .tree-card,
-  .subsection-card {
+  .subsection-card,
+  .long-note,
+  .thread-card,
+  .formula-card {
     padding: 1.2rem;
+  }
+
+  .pull-quote {
+    font-size: 1.28rem;
   }
 
   p {
